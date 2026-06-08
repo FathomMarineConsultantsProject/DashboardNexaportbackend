@@ -52,5 +52,6 @@ app.use("/user", userRoutes);
 app.use("/expenses", expenseRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/inspections", inspectionRoutes);
+console.log("Server setup complete");
 
 module.exports = app;
