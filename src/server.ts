@@ -21,6 +21,21 @@ app.get('/', (_req: any, res: any) => {
     message: 'NexPort backend API is running',
   });
 });
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://dashboard-nexaportfrontend.vercel.app/',
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
+
+app.options('*', cors());
 
 app.get('/health', (_req: any, res: any) => {
   res.json({
